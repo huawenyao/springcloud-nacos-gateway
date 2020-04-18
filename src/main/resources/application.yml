@@ -1,0 +1,50 @@
+#服务器配置
+server:
+  #端口
+  port: 8080
+
+#服务器发现注册配置
+eureka:
+  client:
+    serviceUrl:
+      #配置服务中心(可配置多个,用逗号隔开)
+      defaultZone: https://www.apiboot.cn/eureka
+
+# 网关路由配置
+spring:
+  #应用配置
+  application:
+    #名称: api网关服务
+    name: api-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+    gateway:
+      discovery:
+          locator:
+            enabled: true
+            lowerCaseServiceId: true
+#      routes:
+#        - id: user-service
+#          order: 0
+#          predicates:
+#            - Path=/{SERVICE}/**
+#          uri: lb://SERVICE
+#          filters:
+#              - StripPrefix=1
+#              - AddResponseHeader=X-Response-Default-Foo, Default-Bar
+            # 关键在下面一句，值为true则开启认证，false则不开启
+            # 这种配置方式和spring cloud gateway内置的GatewayFilterFactory一致
+            #  - Authorize=true
+  redis:
+    host: 10.240.5.231
+    port: 6379
+    password: autel*123
+    database: 0
+logging:
+  level:
+    root: info
+    org.jeecg.modules.system.mapper: debug
+
