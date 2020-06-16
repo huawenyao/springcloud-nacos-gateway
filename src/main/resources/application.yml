@@ -3,13 +3,6 @@ server:
   #端口
   port: 8080
 
-#服务器发现注册配置
-eureka:
-  client:
-    serviceUrl:
-      #配置服务中心(可配置多个,用逗号隔开)
-      defaultZone: https://www.apiboot.cn/eureka
-
 # 网关路由配置
 spring:
   #应用配置
