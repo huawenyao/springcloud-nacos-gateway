@@ -39,9 +39,9 @@ spring:
             # 这种配置方式和spring cloud gateway内置的GatewayFilterFactory一致
             #  - Authorize=true
   redis:
-    host: 10.240.5.231
+    host: 
     port: 6379
-    password: autel*123
+    password: 
     database: 0
 logging:
   level:
